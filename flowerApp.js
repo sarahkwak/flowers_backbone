@@ -17,7 +17,7 @@ var orangeFlower = new app.singleFlower({
 var purpleFlower = new app.singleFlower({
 	name: 'lily',
 	img: 'http://www.hvac2000.com/wp-content/uploads/2016/10/1477471597_Images-of-flowers.jpg',
-	link: 'https://google.com',
+	link: 'purpleflower',
 	price: 10,
 	originality: 'Sweden'
 });
@@ -25,7 +25,7 @@ var purpleFlower = new app.singleFlower({
 var pinkFlower = new app.singleFlower({
 	name: 'rose',
 	img: 'http://www.hvac2000.com/wp-content/uploads/2016/10/1477471597_Images-of-flowers.jpg',
-	link: 'https://google.com',
+	link: 'pinkflower',
 	price: 19,
 	originality: 'Korea'
 });
@@ -33,7 +33,7 @@ var pinkFlower = new app.singleFlower({
 var whiteFlower = new app.singleFlower({
 	name: 'tulip',
 	img: 'http://www.hvac2000.com/wp-content/uploads/2016/10/1477471597_Images-of-flowers.jpg',
-	link: 'https://google.com',
+	link: 'whiteflower',
 	price: 2,
 	originality: 'Holland'
 });
@@ -41,7 +41,7 @@ var whiteFlower = new app.singleFlower({
 var tantalizingTulips = new app.singleFlower({
 	name: 'Tantalizing Tulip',
 	img: 'http://www.hvac2000.com/wp-content/uploads/2016/10/1477471597_Images-of-flowers.jpg',
-	link: 'https://google.com',
+	link: 'tantalizingtulips',
 	price: 44,
 	color: 'pink',
 	originCountry: 'Holland'
@@ -50,24 +50,26 @@ var tantalizingTulips = new app.singleFlower({
 var fleur_de_lis = new app.singleFlower({
 	name: 'Fleur de lis',
 	img: 'http://www.hvac2000.com/wp-content/uploads/2016/10/1477471597_Images-of-flowers.jpg',
-	link: 'https://google.com',
+	link: 'fleurdelis',
 	price: 32,
 	color: 'yellow',
 	originCountry: 'Holland'
 });
 
 var flowerGroup = new app.europeanFlowers([
-	tantalizingTulips, fleur_de_lis, whiteFlower
+	tantalizingTulips, fleur_de_lis, whiteFlower, pinkFlower
 ])
 
-var stateFlowers = new app.stateFlowers([
-	redFlower, orangeFlower
-])
+// var stateFlowers = new app.stateFlowers([
+// 	redFlower, orangeFlower
+// ])
 
 
-// var flowerGroupView = new app.allFlowersView({ collection: flowerGroup });
-// $('#allFlowers').html(flowerGroupView.render().el);
+var flowerGroupView = new app.allFlowersView({ collection: flowerGroup });
+$('#allFlowers').html(flowerGroupView.render().el);
 
-var stateFlowerGroupView = new app.allFlowersView({ collection: stateFlowers });
-$('#stateFlowers').html( stateFlowerGroupView.render().el);
+var flowerRouter = new app.routes();
+Backbone.history.start();
+// var stateFlowerGroupView = new app.allFlowersView({ collection: stateFlowers });
+// $('#stateFlowers').html( stateFlowerGroupView.render().el);
 
