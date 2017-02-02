@@ -29,14 +29,25 @@ var whiteFlower = new app.singleFlower({
 	img: 'images/tulip.png'
 });
 
-whiteFlower.set({price: 22});
+var tantalizingTulips = new app.singleFlower({
+	name: 'Tantalizing Tulip',
+	price: 44,
+	color: 'pink',
+	originCountry: 'Holland'
+});
 
-var flowerGroup = new app.FlowersCollection([
-	redFlower, orangeFlower, purpleFlower
+var fleur_de_lis = new app.singleFlower({
+	name: 'Fleur de lis',
+	price: 32,
+	color: 'yellow',
+	originCountry: 'Holland'
+});
+
+var europeanFlowers = new app.europeanFlowers([
+	tantalizingTulips, fleur_de_lis
 ])
-
-flowerGroup.add([
-	whiteFlower
-]);
-
-console.log(flowerGroup.toJSON());
+tantalizingTulips.set({
+	price: 22
+})
+fleur_de_lis.set('color', 'orange');
+console.log(europeanFlowers.toJSON());
